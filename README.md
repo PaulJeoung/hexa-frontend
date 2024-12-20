@@ -1,6 +1,60 @@
-# Getting Started with Create React App
+# Getting Started with Create React App (hexa-frontend)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+# installation
+
+npm install react-bootstrap bootstrap
+
+npm i react-bootstrap-icons
+
+npm i react-router-dom@6
+
+npm i react-dom
+
+npm install json-server@0.17.4
+
+npm install axios
+
+npm install redux
+
+npm install react-redux
+
+npm install @reduxjs/toolkit
+
+npm i @tanstack/react-query
+
+npm i @tanstack/react-query-devtools
+
+npm install react-cookie
+
+# setting or import things
+
+{App.js}
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+{Index.js}
+
+import { BrowserRouter } from 'react-router-dom';
+
+{json-server start}
+
+npx json-server --watch db.json --port 500
+
+# error troubleshooting
+
+프로젝트 생성시 에러 발생 해결방법: https://asoe72.tistory.com/38
+
+npm config set legacy-peer-deps true
+
+npm install --save-dev ajv@^8
+
+npm install ajv@^8
+
+# pkg check list
+
+npm list react react-dom
 
 ## Available Scripts
 
