@@ -2,15 +2,17 @@ import React from 'react'
 import {Nav, Navbar, NavDropdown, Container, Row, Col} from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
+import MenuNav from './MenuNav'
 
 
 const AppLayout = () => {
     const loginState = useSelector(state => state.loginSlice)
   return (
     <div>
+        <MenuNav />
         <Navbar expand="lg" className="bg-body-tertiary mb-5">
             <Container>
-                <Navbar.Brand href="/">ReactApiSpring</Navbar.Brand>
+                <Navbar.Brand href="/">HEXACEPS</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
