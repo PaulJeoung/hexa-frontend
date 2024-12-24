@@ -1,155 +1,129 @@
-@import url('https://fonts.googleapis.com/css?family=Lobster');
- body {
-	 background-color: #89fad0;
-	 font-family: 'Lobster';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Rowdies:wght@300;400;700&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+body {
+    background-color: #ffffff;
+    font-family: "Rowdies", "Noto+Sans", sans-serif;
 }
- #carousel {
+#carousel {
 	 position: relative;
 	 height: 200px;
-	 width: 810px;
-	 margin: auto;
-     left: 0;
-	 right: 0;
-	 top: 0;
-	 bottom: 0;
+	 width: 100%;
+	 max-width: 810px;
+
 }
- .arrow {
-	 position: absolute;
-	 width: 30px;
-	 height: 30px;
-	 background-color: rgb(214, 203, 203);
-	 text-align: center;
-	 font-size: 25px;
-	 border-radius: 50%;
-	 cursor: pointer;
-	 font-size: 20px;
-	 color: #f0f7ee;
-	 line-height: 30px;
-	 margin-top: 85px;
-	 z-index: 1000;
+.carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 5px;
 }
- .arrow-right {
-	 left: 780px;
+.arrow {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background-color: rgb(98,82,68);
+	text-align: center;
+	font-size: 25px;
+	border-radius: 50%;
+	cursor: pointer;
+	font-size: 20px;
+	color: #f0f7ee;
+	line-height: 30px;
+	margin-top: 85px;
+	z-index: 1000;
 }
- .item {
-	 text-align: center;
-	 color: white;
-	 font-size: 40px;
-	 position: absolute;
-	 transition: height 1s, width 1s, left 1s, margin-top 1s, line-height 1s, background-color 1s;
+.arrow-right {
+	left: 10px;
 }
- .level-2 {
-	 height: 150px;
-	 width: 110px;
-	 line-height: 150px;
-	 background-color: #228291;
-	 left: 650px;
-	 margin-top: 25px;
+.arrow-left {
+	right: 10px;
 }
- .level-1 {
-	 height: 180px;
-	 width: 130px;
-	 line-height: 180px;
-	 background-color: #6796e5;
-	 left: 500px;
-	 margin-top: 10px;
+.item {
+	text-align: center;
+	color: white;
+	font-size: 40px;
+	position: absolute;
+	transition: height 1s, width 1s, left 1s, margin-top 1s, line-height 1s, background-color 1s;
 }
- .level0 {
-	 height: 200px;
-	 width: 150px;
-	 line-height: 200px;
-	 background-color: #4ec9e1;
-	 left: 330px;
+.level-2, .level-1, .level0, .level1, .level2 {
+    height: 150px;
+    width: 110px;
+    line-height: 150px;
+    background-color: #ffffff;
+    margin-top: 25px;
 }
- .level1 {
-	 height: 180px;
-	 width: 130px;
-	 line-height: 180px;
-	 background-color: #6796e5;
-	 margin-top: 10px;
-	 left: 180px;
+
+.level-2 {
+    left: 650px;
 }
- .level2 {
-	 height: 150px;
-	 width: 110px;
-	 line-height: 150px;
-	 background-color: #228291;
-	 margin-top: 25px;
-	 left: 50px;
+
+.level-1 {
+    height: 180px;
+    width: 130px;
+    left: 500px;
+    margin-top: 10px;
 }
- .left-enter {
-	 opacity: 0;
-	 left: -60px;
-	 height: 120px;
-	 width: 90px;
-	 line-height: 120px;
-	 margin-top: 40px;
+
+.level0 {
+    height: 200px;
+    width: 150px;
+    left: 330px;
+    background-color: #ffffff;
 }
- .left-enter.left-enter-active {
-	 opacity: 1;
-	 left: 50px;
-	 height: 150px;
-	 width: 110px;
-	 line-height: 150px;
-	 margin-top: 25px;
-	 transition: left 1s, opacity 1s, height 1s, width 1s, margin-top 1s, line-height 1s;
+
+.level1 {
+    left: 180px;
 }
- .left-leave {
-	 opacity: 1;
-	 left: 650px;
-	 height: 150px;
-	 width: 110px;
-	 line-height: 150px;
-	 margin-top: 25px;
+
+.level2 {
+    left: 50px;
 }
- .left-leave.left-leave-active {
-	 left: 780px;
-	 opacity: 0;
-	 height: 120px;
-	 line-height: 120px;
-	 margin-top: 40px;
-	 width: 90px;
-	 transition: left 1s, opacity 1s, height 1s, width 1s, margin-top 1s, line-height 1s;
+
+@media (max-width: 1024px) {
+    #carousel {
+        height: 150px;
+    }
+
+    .arrow {
+        width: 25px;
+        height: 25px;
+        font-size: 18px;
+        line-height: 25px;
+        margin-top: 62.5px;
+    }
+
+    .item {
+        font-size: 30px;
+    }
+
+    .level-2, .level-1, .level0, .level1, .level2 {
+        height: 120px;
+        width: 90px;
+        line-height: 120px;
+    }
 }
- .right-enter {
-	 opacity: 0;
-	 left: 760px;
-	 height: 120px;
-	 width: 90px;
-	 line-height: 120px;
-	 margin-top: 40px;
+
+@media (max-width: 768px) {
+    #carousel {
+        height: 120px;
+    }
+
+    .arrow {
+        width: 20px;
+        height: 20px;
+        font-size: 14px;
+        line-height: 20px;
+        margin-top: 50px;
+    }
+
+    .item {
+        font-size: 20px;
+    }
+
+    .level-2, .level-1, .level0, .level1, .level2 {
+        height: 100px;
+        width: 75px;
+        line-height: 100px;
+    }
 }
- .right-enter.right-enter-active {
-	 left: 650px;
-	 opacity: 1;
-	 height: 150px;
-	 margin-top: 25px;
-	 line-height: 150px;
-	 width: 110px;
-	 transition: left 1s, opacity 1s, height 1s, width 1s, margin-top 1s, line-height 1s;
-}
- .right-leave {
-	 left: 50px;
-	 height: 150px;
-	 opacity: 1;
-	 margin-top: 25px;
-	 line-height: 150px;
-	 width: 110px;
-}
- .right-leave.right-leave-active {
-	 left: -60px;
-	 opacity: 0;
-	 height: 120px;
-	 width: 90px;
-	 line-height: 120px;
-	 margin-top: 40px;
-	 transition: left 1s, opacity 1s, height 1s, width 1s, margin-top 1s, line-height 1s;
-}
- .noselect {
-	 -webkit-user-select: none;
-	 -khtml-user-select: none;
-	 -moz-user-select: none;
-	 -ms-user-select: none;
-	 user-select: none;
-}
- 
