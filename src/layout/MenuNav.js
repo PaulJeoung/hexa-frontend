@@ -11,6 +11,9 @@ const Navbar = () => {
     const goToLogin = () => {
       navigate("/login")
     }
+    const goToJoin = () => {
+      navigate("/member/join")
+    }
     const goToHome =() => {
       navigate("/");
     }
@@ -26,12 +29,12 @@ const Navbar = () => {
   return (
     <>
       <Container>
-        <div className='d-flex justify-content-end align-items-center mt-2 pointer' onClick={goToLogin}>
-          <div className="me-2" style={{ fontSize: '0.8rem' }}>고객센터</div>
+        <div className='d-flex justify-content-end align-items-center mt-2 pointer' onClick={goToHome}>
+          <div className="me-2" style={{ fontSize: '0.8rem' }} onClick={goToLogin} >고객센터</div>
           <div className="me-2" style={{ fontSize: '0.8rem' }}>마이쇼핑</div>
           <div className="me-2" style={{ fontSize: '0.8rem' }}>마이페이지</div>
           <div className="me-2" style={{ fontSize: '0.8rem' }}>관심</div>
-          <Person /><div className='ms-2' style={{ fontSize: '0.8rem' }}>로그인</div>
+          <Person /><div className='ms-2' style={{ fontSize: '0.8rem' }} onClick={goToJoin}>로그인</div>
         </div>
         {/* <div className='text-center d-none d-md-block'>
           <Link to="/">

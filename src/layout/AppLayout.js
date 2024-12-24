@@ -10,7 +10,7 @@ const AppLayout = () => {
   return (
     <div>
         <MenuNav />
-        <Navbar expand="lg" className="bg-body-tertiary mb-5">
+        {/* <Navbar expand="lg" className="bg-body-tertiary mb-5">
             <Container>
                 <Navbar.Brand href="/">HEXACEPS</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -46,7 +46,7 @@ const AppLayout = () => {
                 </Nav>
                 </Navbar.Collapse>
             </Container>
-        </Navbar>
+        </Navbar> */}
         <Container>
             <Row>
                 <Col md="12"><Outlet /></Col>
