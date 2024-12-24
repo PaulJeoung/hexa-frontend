@@ -5,7 +5,9 @@ import ProductCategory from '../components/common/ProductCategory'
 
 const MainPage = () => {
 
-  const items = [1,2,3,4,5,6,7]
+  const items = [
+    "../images/raw1.jpg","../images/raw2.jpg","../images/raw3.jpg",
+    "../images/raw4.jpg","../images/raw5.jpg","../images/raw6.jpg"]
   return (
     <>
       <div>MainPage</div>

@@ -10,29 +10,23 @@ const ProductCategory = () => {
   
   return (
     <>
-        <Container >
-          {
-            productCategory.map(category => {
-              <Row className='text-start'>{category}</Row>
-              {
-                <Row className='text-center mt-3'>
-                {
-                  sampleImage.map(list => 
-                      <Col lg={2} md={4} sm={6}><Image src={list} roundedCircle/>{productName}</Col>
-                  )
-                }
-                </Row>
-              }
-            })}
-            {/* <Row className='text-start'></Row>
-            <Row className='text-center mt-3'>
-                {
-                    sampleImage.map(list => 
-                        <Col lg={2} md={4} sm={6}><Image src={list} roundedCircle/>{productName}</Col>
-                    )
-                }
-            </Row> */}
-        </Container>
+      <Container>
+      {productCategory.map((category, index) => (
+        <React.Fragment key={index}>
+          <Row className="text-start mb-2">
+            <h5>{category}</h5>
+          </Row>
+          <Row className="text-center mt-3">
+            {sampleImage.map((image, idx) => (
+              <Col lg={2} md={4} sm={6} key={idx}>
+                <Image src={image} roundedCircle fluid />
+                <p className="mt-2">{productName}</p>
+              </Col>
+            ))}
+          </Row>
+        </React.Fragment>
+      ))}
+    </Container>
     </>
   )
 }
