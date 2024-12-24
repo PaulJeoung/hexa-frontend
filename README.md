@@ -28,6 +28,8 @@ npm i @tanstack/react-query-devtools
 
 npm install react-cookie
 
+npm install cross-env # port 변경
+
 # setting or import things
 
 {App.js}
