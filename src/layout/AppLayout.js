@@ -10,7 +10,7 @@ const AppLayout = () => {
   return (
     <div>
         <MenuNav />
-        <Navbar expand="lg" className="bg-body-tertiary mb-5">
+        {/* <Navbar expand="lg" className="bg-body-tertiary mb-5">
             <Container>
                 <Navbar.Brand href="/">HEXACEPS</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -46,7 +46,10 @@ const AppLayout = () => {
                 </Nav>
                 </Navbar.Collapse>
             </Container>
-        </Navbar>
+        </Navbar> */}
+        <div className='d-flex justify-content-center'>
+            <hr className='border border-dark border-2 opacity-50 ' style={{ width : "95%" }} />
+        </div>
         <Container>
             <Row>
                 <Col md="12"><Outlet /></Col>

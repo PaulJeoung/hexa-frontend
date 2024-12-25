@@ -1,13 +1,13 @@
 import React from 'react'
 import HexaJoinComponent from '../../components/member/HexaJoinComponent'
 
-const LoginPage = () => {
+const HexaJoinPage = () => {
   return (
     <>
-        <div className='mb-5'>LoginPage</div>
+        <div>HexaJoinPage</div>
         <HexaJoinComponent />
     </>
   )
 }
 
-export default LoginPage
+export default HexaJoinPage

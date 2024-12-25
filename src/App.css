@@ -127,3 +127,14 @@ body {
         line-height: 100px;
     }
 }
+
+/* 커서 탬플릿 https://developer.mozilla.org/en-US/docs/Web/CSS/cursor */
+.pointer {
+    cursor: pointer;
+}
+.wait {
+    cursor: wait;
+}
+.help {
+    cursor: help;
+}

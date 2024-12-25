@@ -3,13 +3,43 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { Person, Search } from 'react-bootstrap-icons';
 import { Link, useNavigate } from 'react-router-dom';
 // import OffMenu from './OffMenu';
+import OffMenu from './OffMenu'
 
 const Navbar = () => {
-    const menuList = ['신상', '브랜드', '럭셔리', '컬렉션', '사이즈', '가격대'];
-  
+    const menuList = ['신상', '브랜드', '럭셔리', '컬렉션', '사이즈', '가격대']
+    const mainList = [
+      {
+        "id": "helpdesk",
+        "name": "고객센터",
+        "path": "/helpdesk"
+      },
+      {
+        "id": "cart",
+        "name": "카트",
+        "path": "/order/cart"
+      },
+      {
+        "id": "mypage",
+        "name": "마이페이지",
+        "path": "/member"
+      },
+      {
+        "id": "like",
+        "name": "관심상품",
+        "path": "/order/like"
+      },
+      {
+        "id": "login",
+        "name": "로그인",
+        "path": "/join"
+      },
+    ]
     const navigate = useNavigate();
     const goToLogin = () => {
       navigate("/login")
+    }
+    const goToJoin = () => {
+      navigate("/member/join")
     }
     const goToHome =() => {
       navigate("/");
@@ -26,13 +56,14 @@ const Navbar = () => {
   return (
     <>
       <Container>
-        <div className='d-flex justify-content-end align-items-center mt-2 pointer' onClick={goToLogin}>
-          <div className="me-2" style={{ fontSize: '0.8rem' }}>고객센터</div>
-          <div className="me-2" style={{ fontSize: '0.8rem' }}>마이쇼핑</div>
-          <div className="me-2" style={{ fontSize: '0.8rem' }}>마이페이지</div>
-          <div className="me-2" style={{ fontSize: '0.8rem' }}>관심</div>
-          <Person /><div className='ms-2' style={{ fontSize: '0.8rem' }}>로그인</div>
+        <div className='d-flex justify-content-end align-items-center' >
+          <div className="me-2 mt-2 pointer" onClick={goToHome} style={{ fontSize: '0.8rem' }} >고객센터</div>
+          <div className="me-2 mt-2 pointer" onClick={goToHome} style={{ fontSize: '0.8rem' }} >마이쇼핑</div>
+          <div className="me-2 mt-2 pointer" onClick={goToLogin} style={{ fontSize: '0.8rem' }} >마이페이지</div>
+          <div className="me-2 mt-2 pointer" onClick={goToHome} style={{ fontSize: '0.8rem' }} >관심</div>
+          <div className='me-2 mt-2 pointer' onClick={goToJoin} style={{ fontSize: '0.8rem' }} >로그인</div>
         </div>
+        
         {/* <div className='text-center d-none d-md-block'>
           <Link to="/">
             <img src='../images/logo.png' alt='로고' width={100}/>
@@ -52,8 +83,8 @@ const Navbar = () => {
               </ul>
             </Col>
             <Col lg={3}>
-              <form className='mb-3 d-flex justfy-content-end align-items-center' role='search'>
-                <Search />
+              <form className='border border-dark rounded mb-3 d-flex justfy-content-end align-items-center help' role='search'>
+                <Search className='ms-3'/>
                 <input className='form-control me-2 border-0 border-bottom' type='search' placeholder='Search' 
                 onKeyDown={(e) => search(e)}/>
               </form>
@@ -61,10 +92,17 @@ const Navbar = () => {
             <Col lg={1}></Col>
           </Row>
         </div>
-        {/* <div className='d-md-none'>
+        <div className='d-md-none'>
           <OffMenu menuList={menuList} />
-            <img src="../images/logo.png" alt="logo" width={50} onClick={goToHome} className='pointer'/>
-        </div> */}
+          <Link to="/">
+              <img src='../images/logo.png' alt='로고' width={100}/>
+          </Link>
+          <form className='border border-dark rounded mb-3 d-flex justfy-content-end align-items-center help' role='search' width={150}>
+            <Search className='ms-3'/>
+            <input className='form-control me-2 border-0 border-bottom' type='search' placeholder='Search' 
+            onKeyDown={(e) => search(e)}/>
+          </form>
+        </div>
       </Container>
     </>
   )
