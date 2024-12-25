@@ -19,6 +19,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import LoginPage from './pages/member/LoginPage';
 import LogOutPage from './pages/member/LogOutPage';
 import HexaJoinPage from './pages/member/HexaJoinPage';
+import HexaSigninPage from './pages/member/HexaSigninPage';
 
 function App() {
   //     /todo/list, /todo/add, /todo/read/번호, /todo/modify/번호
@@ -45,6 +46,7 @@ function App() {
           <Route path="login" element={<LoginPage />} />
           <Route path="logout" element={<LogOutPage />} />
           <Route path="join" element={<HexaJoinPage />} />
+          <Route path='signin' element={<HexaSigninPage />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Route>

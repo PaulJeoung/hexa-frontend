@@ -47,6 +47,9 @@ const AppLayout = () => {
                 </Navbar.Collapse>
             </Container>
         </Navbar> */}
+        <div className='d-flex justify-content-center'>
+            <hr className='border border-dark border-2 opacity-50 ' style={{ width : "95%" }} />
+        </div>
         <Container>
             <Row>
                 <Col md="12"><Outlet /></Col>
