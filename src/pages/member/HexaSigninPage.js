@@ -1,11 +1,12 @@
 import React from 'react'
+import HexaSigninComponent from '../../components/member/HexaSigninComponent'
 
 
 const HexaSigninPage = () => {
   return (
     <>
         <div>HexaSigninPage</div>
-        <HexaSigninPage />
+        <HexaSigninComponent />
     </>
   )
 }

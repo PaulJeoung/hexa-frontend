@@ -8,6 +8,7 @@ import { Link, useNavigate } from 'react-router-dom';
 const HexaJoinComponent = () => {
   const navigate = useNavigate();
   const goToSignin = () => {
+    console.log("회원가입 가고 있냐????")
     navigate("/member/signin")
   }
   return (
@@ -33,7 +34,7 @@ const HexaJoinComponent = () => {
               <p className="mt-3">계정 찾기</p>
             </div>
             <div className="text-center mt-5">
-              <p><a href='#' ><img src="../images/google_login.png" alt='구글로그인' style={{ width : "70%", height : "80px", borderRadius: "30px"}}/></a></p>
+              <p><a href='#' ><img src="../images/google_login.png" alt='구글로그인' style={{ width : "70%", height : "40px", borderRadius: "30px"}}/></a></p>
               <p><a href='#' ><img src="../images/kakao_login.png" alt='카카오로그인' style={{ width : "70%", border : "black", borderRadius: "30px"}}/></a></p>
             </div>
           </Col>

@@ -3,7 +3,7 @@ import { Container, Row, Col, Form, InputGroup, Button } from 'react-bootstrap';
 import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
 // 약관 참고 : https://choijying21.tistory.com/entry/TIL-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EC%B2%B4%ED%81%AC%EB%B0%95%EC%8A%A4-%EC%A0%84%EC%B2%B4-%EC%84%A0%ED%83%9D-%EB%B0%8F-%EC%95%BD%EA%B4%80-%EB%8F%99%EC%9D%98-%ED%99%94%EB%A9%B4-%EA%B5%AC%ED%98%84
 // 약관 샘플 : https://shoeathe.com/member/agreement.html
-
+ 
 const HexaSigninComponent = () => {
   const [checkItems, setCheckItems] = useState([]);
   const [openStates, setOpenStates] = useState({});
@@ -37,32 +37,38 @@ const HexaSigninComponent = () => {
   };
 
   return (
-    <Container>
+    <Container> 
       <Row><h3>회원가입</h3></Row>
       <Row>
         <Col>
-          <Form>
-            <Form.Label className="mt-4">이름 *</Form.Label>
-            <Form.Control type="text" placeholder="예) 홍길동" />
-
-            <Form.Label className="mt-4">비밀번호 *</Form.Label>
-            <Form.Control type="password" placeholder="영문, 숫자 조합 8~16자" />
-
-            <Form.Label className="mt-4">비밀번호 확인 *</Form.Label>
-            <Form.Control type="password" placeholder="영문, 숫자 조합 8~16자" />
-            
-            <Form.Label className="mt-4">이메일 *</Form.Label>
-            <InputGroup>
-                <Form.Control type="email" placeholder="예) hexaceps@hexaceps.com" />
+          <div>
+            <Form.Group>
+              <Form.Label className="mt-4">이름 *</Form.Label>
+              <Form.Control type="text" name="username" placeholder="예) 홍길동" />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label className="mt-4">비밀번호 *</Form.Label>
+              <Form.Control type="password" name="password" placeholder="영문, 숫자 조합 8~16자" />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label className="mt-4">비밀번호 확인</Form.Label>
+              <Form.Control type="password" name="chekPass" placeholder="영문, 숫자 조합 8~16자" />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label className="mt-4">이메일 *</Form.Label>
+              <InputGroup>
+                <Form.Control type="email" name="email" placeholder="예) hexaceps@hexaceps.com" />
                 <Button variant='outline-warning'>인증하기</Button>
-            </InputGroup>
-
-            <Form.Label className="mt-4">이메일 인증 확인 *</Form.Label>
-            <InputGroup>
+              </InputGroup>
+            </Form.Group>
+            <Form.Group>
+              <Form.Label className="mt-4">이메일 인증 확인 *</Form.Label>
+              <InputGroup>
                 <Form.Control type="text" placeholder="수신 받은 메일의 가입 코드를 입력해 주세요" />
                 <Button variant='outline-warning'>코드전송</Button>
-            </InputGroup>
-          </Form>
+              </InputGroup>
+            </Form.Group>
+          </div>
         </Col>
         <Col>
           <div className='mt-5 ms-5'>
