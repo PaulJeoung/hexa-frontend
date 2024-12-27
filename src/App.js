@@ -20,6 +20,10 @@ import LoginPage from './pages/member/LoginPage';
 import LogOutPage from './pages/member/LogOutPage';
 import HexaJoinPage from './pages/member/HexaJoinPage';
 import HexaSigninPage from './pages/member/HexaSigninPage';
+import HelpdeskPage from './pages/board/HelpdeskPage'
+import NoticePage from './pages/board/NoticePage';
+import QnAPage from './pages/board/QnAPage';
+import FAQPage from './pages/board/FAQPage';
  
 function App() {
   //     /todo/list, /todo/add, /todo/read/번호, /todo/modify/번호
@@ -47,6 +51,12 @@ function App() {
           <Route path="logout" element={<LogOutPage />} />
           <Route path="join" element={<HexaJoinPage />} />
           <Route path='signin' element={<HexaSigninPage />} />
+        </Route>
+        <Route path="/board/">
+          {/* <Route path="helpdesk" element={<HelpdeskPage />} /> */}
+          <Route path="notice" element={<NoticePage />} />
+          <Route path="qna" element={<QnAPage />} />
+          <Route path="faq" element={<FAQPage />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Route>

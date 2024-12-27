@@ -11,7 +11,7 @@ const Navbar = () => {
       {
         "id": "helpdesk",
         "name": "고객센터",
-        "path": "/helpdesk"
+        "path": "/board"
       },
       {
         "id": "cart",
@@ -44,6 +44,9 @@ const Navbar = () => {
     const goToHome =() => {
       navigate("/");
     }
+    const goToBoard =() => {
+      navigate("/board/notice");
+    }
     const search = (e) => {
       if(e.key === "Enter") {
         e.preventDefault();
@@ -57,7 +60,7 @@ const Navbar = () => {
     <>
       <Container>
         <div className='d-flex justify-content-end align-items-center' >
-          <div className="me-2 mt-2 pointer" onClick={goToHome} style={{ fontSize: '0.8rem' }} >고객센터</div>
+          <div className="me-2 mt-2 pointer" onClick={goToBoard} style={{ fontSize: '0.8rem' }} >고객센터</div>
           <div className="me-2 mt-2 pointer" onClick={goToHome} style={{ fontSize: '0.8rem' }} >마이쇼핑</div>
           <div className="me-2 mt-2 pointer" onClick={goToLogin} style={{ fontSize: '0.8rem' }} >마이페이지</div>
           <div className="me-2 mt-2 pointer" onClick={goToHome} style={{ fontSize: '0.8rem' }} >관심</div>

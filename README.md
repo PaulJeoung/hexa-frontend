@@ -14,6 +14,8 @@ npm i react-router-dom@6
 
 npm i react-dom
 
+npm install react-router-bootstrap
+
 npm install json-server@0.17.4
 
 npm install axios
