@@ -17,6 +17,7 @@ const MainPage = () => {
       <div>MainPage</div>
       {/* <ProductCarousel items = {items} initialActive={0}/> */}
       <MainCarousel />
+      <div>메인 캐러셀</div>
       <MainImageSlider items = {items} />
       <div>슬라이드 1</div>
       <MainImageSlider items = {items} />
