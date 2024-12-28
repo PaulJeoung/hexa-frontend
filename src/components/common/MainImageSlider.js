@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react';
 import './ImageSlider.css'
-import { Card } from 'react-bootstrap';
 
 const MainImageSlider = ({items}) => {
 

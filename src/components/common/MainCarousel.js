@@ -1,30 +1,16 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { ArrowLeftShort, ArrowRightShort } from "react-bootstrap-icons";
 import { Container, Button } from "react-bootstrap";
-import "./Slider.css";
+import "./MainCarousel.css";
 
-const MainCarousel = () => {
-
-
-  const [activeIndex, setActiveIndex] = useState(0); // 기본 활성 슬라이드 인덱스
-    const totalSlides = 8;
+const MainCarousel = ({ images }) => {
+    const [activeIndex, setActiveIndex] = useState(0);
     const intervalRef = useRef(null);
-  
-    const slideData = [
-      { title: "슬라이드 1 타이틀", subtitle: "슬라이드 1 부제", image: "./images/raw1.jpg" },
-      { title: "슬라이드 2 타이틀", subtitle: "슬라이드 2 부제", image: "./images/raw2.jpg" },
-      { title: "슬라이드 3 타이틀", subtitle: "슬라이드 3 부제", image: "./images/raw3.jpg" },
-      { title: "슬라이드 4 타이틀", subtitle: "슬라이드 4 부제", image: "./images/raw4.jpg" },
-      { title: "슬라이드 5 타이틀", subtitle: "슬라이드 5 부제", image: "./images/raw5.jpg" },
-      { title: "슬라이드 6 타이틀", subtitle: "슬라이드 6 부제", image: "./images/raw6.jpg" },
-      { title: "슬라이드 7 타이틀", subtitle: "슬라이드 7 부제", image: "./images/raw3.jpg" },
-      { title: "슬라이드 8 타이틀", subtitle: "슬라이드 8 부제", image: "./images/raw5.jpg" },
-    ];
-  
+
     const updateSlides = (newIndex) => {
       if (newIndex < 0) {
-        newIndex = totalSlides - 1;
-      } else if (newIndex >= totalSlides) {
+        newIndex = images.length - 1;
+      } else if (newIndex >= images.length) {
         newIndex = 0;
       }
       setActiveIndex(newIndex);
@@ -48,9 +34,9 @@ const MainCarousel = () => {
     // 자동 슬라이드 전환 시작
     const startAutoSlide = useCallback(() => {
       intervalRef.current = setInterval(() => {
-        setActiveIndex((prevIndex) => (prevIndex + 1) % totalSlides); // 다음 슬라이드로 이동
+        setActiveIndex((prevIndex) => (prevIndex + 1) % images.length); // 다음 슬라이드로 이동
       }, 10000); 
-    }, [totalSlides]);
+    }, [images.length]);
   
     // 자동 슬라이드 타이머 초기화
     const resetAutoSlide = () => {
@@ -69,15 +55,11 @@ const MainCarousel = () => {
         }
       };
     }, [startAutoSlide]);
-  
+
     const getClassName = (index) => {
-      const diff = index - activeIndex;
-      if (diff === -2 || diff === totalSlides - 2) return "prev-2";
-      if (diff === -1 || diff === totalSlides - 1) return "prev-1";
-      if (diff === 0) return "active";
-      if (diff === 1 || diff === -(totalSlides - 1)) return "next-1";
-      if (diff === 2 || diff === -(totalSlides - 2)) return "next-2";
-      return "";
+      const diff = (index - activeIndex + images.length) % images.length;
+      const classNames = ["prev-2", "prev-1", "active", "next-1", "next-2"];
+      return classNames[diff] || "";
     };
   
     return (
@@ -91,12 +73,14 @@ const MainCarousel = () => {
             <ArrowRightShort size={28} color="gray" />
           </span>
           <div className="slider">
-            {Array.from({ length: totalSlides }, (_, index) => (
-              <div key={index} className={`slide ${getClassName(index)}`}/>
-            ))}
+            {images.map((data, index) => 
+              <div key={index} className={`slide ${getClassName(index)}`} >
+                <img src={data.image} alt={`hexaceps_image_${index}`} />
+              </div>
+            )}
           </div>
           <div className="dots">
-            {Array.from({ length: totalSlides }, (_, index) => (
+            {Array.from({ length: images.length }, (_, index) => (
               <span
                 key={index}
                 className={activeIndex === index ? "active" : ""}
@@ -105,15 +89,10 @@ const MainCarousel = () => {
             ))}
         </div>
         <Container className="text-center">
-              <h5 id="GmarketSans">{slideData[activeIndex].title}</h5>
-              <p id="GmarketSans" >{slideData[activeIndex].subtitle}</p>
-          <Button className="m-3 rounded-pill custom-btn-1">
-            알아보기
-          </Button>
-          <Button className="m-3 rounded-pill custom-btn-2">
-            구매하기
-          </Button>
-          <div><img src="./images/raw5.jpg" alt="이미지" /></div>
+              <h5 id="GmarketSans">{images[activeIndex].title}</h5>
+              <p id="GmarketSans" >{images[activeIndex].subtitle}</p>
+          <Button className="m-3 rounded-pill custom-btn-1">알아보기</Button>
+          <Button className="m-3 rounded-pill custom-btn-2">구매하기</Button>
       </Container>
       </div>
     );
