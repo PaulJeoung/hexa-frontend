@@ -31,27 +31,27 @@ const MainPage = () => {
       </Container>
       <Container style={{marginTop : "40px"}}>
         <Row className='mt-5'>
-          <h3 className='mt-5'>신상</h3>
+          <h4 className='mt-5'>신상</h4>
           <MainImageSlider items = {items} />
         </Row>
         <Row className='mt-5'>
-          <h3>브랜드</h3>
+          <h4>브랜드</h4>
           <MainImageSlider items = {items} />
         </Row>
         <Row className='mt-5'>
-          <h3>럭셔리</h3>
+          <h4>럭셔리</h4>
           <MainImageSlider items = {items} />
         </Row>
         <Row className='mt-5'>
-          <h3>컬렉션</h3>
+          <h4>컬렉션</h4>
           <MainImageSlider items = {items} />
         </Row>
         <Row className='mt-5'>
-          <h3>사이즈</h3>
+          <h4>사이즈</h4>
           <MainImageSlider items = {items} />
         </Row>
         <Row className='mt-5'>
-          <h3>가격대</h3>
+          <h4>가격대</h4>
           <MainImageSlider items = {items} />
         </Row>
       </Container>      

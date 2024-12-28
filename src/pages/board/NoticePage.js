@@ -9,7 +9,7 @@ const NoticePage = () => {
     <>
       <Container>
         <HelpDeskLayout></HelpDeskLayout>
-        <div className='mb-3 mt-3 text-center'><h2>공지사항</h2></div>
+        <div className='mb-3 mt-5 text-center'><h2>공지사항</h2></div>
         <NoticeListComponent />
       </Container>
     </>
