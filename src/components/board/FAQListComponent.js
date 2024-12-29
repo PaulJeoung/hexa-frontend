@@ -1,18 +1,55 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Table } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom';
 import { Search } from 'react-bootstrap-icons';
+import { getCategoryList } from '../../api/hexaBoardApi';
+
+const initState = {
+  id: 0,
+  category: "faq",
+  title: null,
+  content: null,
+  author: null,
+  createdAt: null,
+  updatedAt: null,
+  count: 0,
+  visible: false
+}
+
+const dateFormatted = (dateString) => {
+  if (!dateString) return "1970-01-01 00:00:00";
+  const date = new Date(dateString);
+  const pad = (n) => (n < 10 ? `0${n}` : n);
+  const yyyy = date.getFullYear();
+  const MM = pad(date.getMonth() + 1);
+  const dd = pad(date.getDate());
+  const hh = pad(date.getHours());
+  const mm = pad(date.getMinutes());
+  const ss = pad(date.getSeconds());
+  return `${yyyy}-${MM}-${dd} ${hh}:${mm}:${ss}`;
+};
 
 const FAQListComponent = () => {
+  const [serverData, setServerData] = useState(initState)
+    useEffect(() => {
+      getCategoryList("faq").then(data => {
+        console.log("FAQ Data recieved from back-end serve : ", data)
+        setServerData(data)
+      })
+    }, [])
+
   const navigate = useNavigate();
-    const search = (e) => {
-      if(e.key === "Enter") {
-        e.preventDefault();
-        console.log("Enter 확인", e.key, e.target.value);
-        let keyword = e.target.value;
-        navigate(`/?q=${keyword}`);
-      }
+  const moveToRead = (board_id) => {
+    navigate(`/board/${board_id}`)
+  }
+  const search = (e) => {
+    if(e.key === "Enter") {
+      e.preventDefault();
+      console.log("Enter 확인", e.key, e.target.value);
+      let keyword = e.target.value;
+      navigate(`/?q=${keyword}`);
     }
+  }
   
   return (
     <>
@@ -24,9 +61,10 @@ const FAQListComponent = () => {
             onKeyDown={(e) => search(e)}/>
           </form>
         </div>
-        <Table striped bordered hover>
+        <Table striped bordered hover
+          className='mt-5' style={{borderBottom : "1px solid #625244"}} >
           <thead>
-            <tr>
+            <tr className='text-center'>
               <th>번호</th>
               <th>제목</th>
               <th>작성일</th>
@@ -34,18 +72,20 @@ const FAQListComponent = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>중계사이트 이용시 구매 오류 문제</td>
-              <td>2025-01-11</td>
-              <td>관리자</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>상품 반품 할때 반송 방법을 알고 싶어요</td>
-              <td>2025-01-13</td>
-              <td>관리자</td>
-            </tr>
+            {serverData.content && serverData.content.length > 0 ? (
+              serverData.content.map((faqList) => (
+                <tr key={faqList.id}>
+                  <td className='text-center'>{faqList.category==="faq" ? "FAQ" : "기타"}</td>
+                  <td onClick={() => moveToRead(faqList.id)} style={{cursor : "pointer", paddingLeft : "30px"}}>{faqList.title}</td>
+                  <td className='text-center'>{dateFormatted(faqList.createdAt)}</td>
+                  <td className='text-center'>조회수 {faqList.count}</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan={"4"} className='text-warning text-center bold'><h2>아직 등록 된 FAQ가 없습니다</h2></td>
+              </tr>
+            )}
           </tbody>
         </Table>
       </div>
