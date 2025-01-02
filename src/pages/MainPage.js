@@ -8,13 +8,13 @@ import { Container, Row } from 'react-bootstrap'
 
 const MainPage = () => {
 
-  const items = [
+  const items = [ // 카테고리별 이미지 좌우 슬라이드 샘플
     "/images/raw1.jpg","/images/raw2.jpg","/images/raw3.jpg",
     "/images/raw4.jpg","/images/raw5.jpg","/images/raw6.jpg",
     "/images/raw1.jpg","/images/raw2.jpg","/images/raw3.jpg",
     "/images/raw4.jpg","/images/raw5.jpg","/images/raw6.jpg"]
 
-  const images = [
+  const images = [ // 캐러셀 쪽 데이터 샘플
     { title: "NIKE x Scott First Edition", subtitle: "나이키 x 스캇 1ST 에디션", image: "./images/raw1.jpg" },
     { title: "NIKE x Scott Second Level", subtitle: "나이키 x 스캇 2nd 레벨", image: "./images/raw2.jpg" },
     { title: "NIKE x Scott 3rd Ultimate", subtitle: "나이키 x 스캇 3rd 에디션", image: "./images/raw3.jpg" },
